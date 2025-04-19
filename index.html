@@ -1,34 +1,85 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>nextyou.net</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
-      background-color: #f4f4f4;
-    }
-    h1 {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
       color: #333;
     }
-    p {
+
+    header {
+      background: #1f2937;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .container h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .container p {
+      font-size: 1.2rem;
       color: #666;
     }
+
     footer {
-      margin-top: 40px;
-      font-size: 0.9em;
+      text-align: center;
+      font-size: 0.9rem;
       color: #aaa;
+      padding: 20px;
+      border-top: 1px solid #eee;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      .container h1 {
+        font-size: 1.8rem;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 10px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to nextyou.net!</h1>
-  <p>이 페이지는 GitHub Pages로 만들어진 첫 번째 홈페이지입니다.</p>
-  <p>앞으로 이곳에 나만의 업무지원 시스템을 구축해나갈 예정입니다 😊</p>
+  <header>
+    <h2>nextyou.net</h2>
+    <nav>
+      <a href="#">홈</a>
+      <a href="#">소개</a>
+      <a href="#">연락처</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>안녕하세요!</h1>
+    <p>여기는 나만의 업무 지원 홈페이지입니다. 앞으로 이곳에 다양한 기능과 정보를 추가할 예정입니다.</p>
+  </div>
 
   <footer>
+    연락처: <a href="mailto:your@email.com">your@email.com</a><br>
     &copy; 2025 nextyou.net
   </footer>
 </body>
