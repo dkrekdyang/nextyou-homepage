@@ -16,7 +16,7 @@
 
     /* 1. 인트로 화면 */
     body.intro {
-      background: url('배경화면.jpg') no-repeat center center fixed;
+      background: url('center-background.jpg') no-repeat center center fixed;
       background-size: cover;
       display: flex;
       justify-content: center;
@@ -44,6 +44,12 @@
 
     .logo:hover {
       text-shadow: 0 0 20px rgba(255,255,255,1);
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #fff;
+      margin-top: 0.5rem;
     }
 
     .arrow {
@@ -96,7 +102,8 @@
 <body class="intro">
   <!-- 인트로 -->
   <div class="intro-content">
-    <div class="logo" onclick="showMenu()">니;유 near you</div>
+    <div class="logo" onclick="showMenu()">니;유</div>
+    <div class="subtitle">near you</div>
     <div class="arrow">▼</div>
   </div>
 
