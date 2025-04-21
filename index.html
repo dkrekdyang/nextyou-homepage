@@ -33,28 +33,15 @@
       height: 100%;
     }
 
-    .logo {
-      font-size: 3rem;
-      color: #000;
-      background: rgba(255,255,255,0.6);
-      padding: 0.5rem 1.5rem;
-      border-radius: 10px;
-      text-shadow: none;
+    .logo-img {
+      width: 60%;
+      max-width: 500px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
-    .logo:hover {
-      background: rgba(255,255,255,0.9);
-    }
-
-    .subtitle {
-      font-size: 1.5rem;
-      color: #000;
-      background: rgba(255,255,255,0.6);
-      padding: 0.3rem 1rem;
-      margin-top: 0.5rem;
-      border-radius: 10px;
+    .logo-img:hover {
+      transform: scale(1.03);
     }
 
     .arrow {
@@ -104,14 +91,11 @@
   </style>
 </head>
 <body class="intro">
-  <!-- 인트로 -->
+  <!-- 인트로 화면 -->
   <div class="intro-content">
-    <div class="logo" onclick="showMenu()">니;유</div>
-    <div class="subtitle">near you</div>
+    <!-- 새 이미지 로고로 교체 -->
+    <img src="니유 이미지.jpg" alt="니;유 로고" class="logo-img" onclick="showMenu()">
     <div class="arrow">▼</div>
-  </div>
-
-  
   </div>
 
   <!-- 메뉴 화면 -->
@@ -130,12 +114,13 @@
       document.querySelector('.intro-content').style.display = 'none';
       document.getElementById('menu').style.display = 'flex';
     }
-  function goHome() {
-  document.getElementById('menu').style.display = 'none';
-  document.querySelector('.intro-content').style.display = 'flex';
-  document.body.classList.add('intro');
-  document.body.style.overflow = 'hidden';
-}
-</script>
+
+    function goHome() {
+      document.getElementById('menu').style.display = 'none';
+      document.querySelector('.intro-content').style.display = 'flex';
+      document.body.classList.add('intro');
+      document.body.style.overflow = 'hidden';
+    }
+  </script>
 </body>
 </html>
