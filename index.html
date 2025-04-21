@@ -14,7 +14,7 @@
       overflow: hidden;
     }
 
-    /* 1. 인트로 화면 */
+    /* 인트로 화면 */
     body.intro {
       background: linear-gradient(to bottom, #e0e0e0, #a0a0a0);
       display: flex;
@@ -33,11 +33,13 @@
       height: 100%;
     }
 
+    /* ✔️ 로고 이미지 */
     .logo-img {
-      width: 60%;
-      max-width: 500px;
+      width: 100%;
+      max-width: 800px;
       cursor: pointer;
       transition: transform 0.3s ease;
+      margin-bottom: 20px;
     }
 
     .logo-img:hover {
@@ -45,7 +47,7 @@
     }
 
     .arrow {
-      margin-top: 30px;
+      margin-top: 10px;
       font-size: 2rem;
       color: rgba(0,0,0,0.6);
       animation: bounce 1.5s infinite;
@@ -56,7 +58,7 @@
       50% { transform: translateY(10px); }
     }
 
-    /* 2. 메뉴 화면 */
+    /* 메뉴 화면 */
     .main {
       display: none;
       width: 100vw;
@@ -93,7 +95,7 @@
 <body class="intro">
   <!-- 인트로 화면 -->
   <div class="intro-content">
-    <!-- 새 이미지 로고로 교체 -->
+    <!-- ✔️ 불필요한 이미지 제거, 로고 이미지만 표시 -->
     <img src="니유 이미지.jpg" alt="니;유 Near You" class="logo-img" onclick="showMenu()">
     <div class="arrow">▼</div>
   </div>
