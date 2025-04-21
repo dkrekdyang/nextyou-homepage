@@ -117,9 +117,9 @@
   <!-- 메뉴 화면 -->
   <div class="main" id="menu" style="display: none;">
     <div class="menu">
-      <button onclick="alert('홈')">홈</button>
-      <button onclick="alert('PDF자료')">PDF자료</button>
-      <button onclick="alert('문의')">문의</button>
+      <button onclick="goHome()">홈</button>
+      <button onclick="alert('현재 준비중입니다')">PDF자료</button>
+      <button onclick="location.href='mailto:nextyou00@naver.com'">문의</button>
     </div>
   </div>
 
@@ -130,6 +130,12 @@
       document.querySelector('.intro-content').style.display = 'none';
       document.getElementById('menu').style.display = 'flex';
     }
-  </script>
+  function goHome() {
+  document.getElementById('menu').style.display = 'none';
+  document.querySelector('.intro-content').style.display = 'flex';
+  document.body.classList.add('intro');
+  document.body.style.overflow = 'hidden';
+}
+</script>
 </body>
 </html>
