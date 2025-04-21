@@ -21,8 +21,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
       transition: all 1s ease-in-out;
+    }
+
+    .intro-content {
+      text-align: center;
     }
 
     .logo {
@@ -81,8 +84,10 @@
 </head>
 <body class="intro">
   <!-- 인트로 -->
-  <div class="logo" onclick="showMenu()">니;유 near you</div>
-  <div class="arrow">▼</div>
+  <div class="intro-content">
+    <div class="logo" onclick="showMenu()">니;유 near you</div>
+    <div class="arrow">▼</div>
+  </div>
 
   <!-- 메뉴 화면 -->
   <div class="main" id="menu">
@@ -97,8 +102,7 @@
     function showMenu() {
       document.body.classList.remove('intro');
       document.body.style.overflow = 'auto';
-      document.querySelector('.logo').style.display = 'none';
-      document.querySelector('.arrow').style.display = 'none';
+      document.querySelector('.intro-content').style.display = 'none';
       document.getElementById('menu').style.display = 'flex';
     }
   </script>
