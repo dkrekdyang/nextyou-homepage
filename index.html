@@ -11,12 +11,13 @@
       width: 100%;
       height: 100%;
       font-family: 'Noto Serif KR', serif;
+      background: #fff; /* ✔️ 흰 배경 */
+      color: #000;       /* ✔️ 검정 글씨 */
       overflow: hidden;
     }
 
     /* 인트로 화면 */
     body.intro {
-      background: linear-gradient(to bottom, #e0e0e0, #a0a0a0);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -33,29 +34,15 @@
       height: 100%;
     }
 
-    /* ✔️ 로고 이미지 */
     .logo-img {
       width: 100%;
-      max-width: 800px;
+      max-width: 900px; /* ✔️ 더 선명하고 크게 표시되도록 확대 */
       cursor: pointer;
       transition: transform 0.3s ease;
-      margin-bottom: 20px;
     }
 
     .logo-img:hover {
-      transform: scale(1.03);
-    }
-
-    .arrow {
-      margin-top: 10px;
-      font-size: 2rem;
-      color: rgba(0,0,0,0.6);
-      animation: bounce 1.5s infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(10px); }
+      transform: scale(1.02);
     }
 
     /* 메뉴 화면 */
@@ -63,7 +50,7 @@
       display: none;
       width: 100vw;
       height: 100vh;
-      background: linear-gradient(to bottom, #ffffff, #cccccc);
+      background: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -79,7 +66,8 @@
     .menu button {
       padding: 1rem 3rem;
       font-size: 1.4rem;
-      background: rgba(255,255,255,0.85);
+      background: #000;      /* ✔️ 검정 배경 */
+      color: #fff;           /* ✔️ 흰 글씨 */
       border: none;
       border-radius: 5px;
       cursor: pointer;
@@ -95,9 +83,8 @@
 <body class="intro">
   <!-- 인트로 화면 -->
   <div class="intro-content">
-    <!-- ✔️ 불필요한 이미지 제거, 로고 이미지만 표시 -->
+    <!-- ✔️ 이미지만 큼직하게 표시, 아래 화살표 제거 -->
     <img src="니유 이미지.jpg" alt="니;유 Near You" class="logo-img" onclick="showMenu()">
-    <div class="arrow">▼</div>
   </div>
 
   <!-- 메뉴 화면 -->
