@@ -3,119 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>니;유 near you</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500&display=swap" rel="stylesheet">
+  <title>니:유</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body {
-      width: 100%;
-      height: 100%;
-      font-family: 'Noto Serif KR', serif;
-      background-color: #ffffff; /* ✅ 완전 흰 배경 */
-      color: #000;
+    body, html {
+      margin: 0;
+      padding: 0;
       overflow: hidden;
+      background-color: #ffffff;
+      font-family: 'Helvetica Neue', sans-serif;
     }
 
-    body.intro {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      background-color: #ffffff; /* ✅ intro 상태에서도 배경을 흰색으로 유지 */
-    }
-
-    .intro-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      height: 100%;
-      padding: 2rem;
-    }
-
-    .logo-img {
-      width: 100%;
-      max-width: 900px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .logo-img:hover {
-      transform: scale(1.02);
-    }
-
-    /* ✅ 삼각형 애니메이션 제거됨 - 관련 CSS 삭제 */
-
-    /* 메뉴 화면 */
-    .main {
-      display: none;
+    #main-screen, #logo-screen {
       width: 100vw;
       height: 100vh;
-      background: #ffffff;
+      position: absolute;
+      top: 0;
+      left: 0;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 2rem;
     }
 
-    .menu {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-      width: 100%;
-      max-width: 500px;
+    #logo-screen {
+      display: none;
+      background-color: #fff7f0;
+      z-index: 999;
     }
 
-    .menu button {
-      width: 100%;
+    #logo-screen img {
+      width: 180px;
+      height: auto;
+      animation: fadeInOut 2s ease-in-out;
+    }
+
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: scale(0.9); }
+      30% { opacity: 1; transform: scale(1); }
+      70% { opacity: 1; }
+      100% { opacity: 0; transform: scale(1.05); }
+    }
+
+    button {
+      font-size: 1.5rem;
       padding: 1rem 2rem;
-      font-size: clamp(1rem, 2.5vw, 1.5rem); /* ✅ 반응형 글씨 크기 */
-      background: #000;
-      color: #fff;
+      background-color: #000;
+      color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .menu button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    button:hover {
+      background-color: #333;
     }
   </style>
 </head>
-<body class="intro">
-  <!-- 인트로 화면 -->
-  <div class="intro-content">
-    <img src="니유 이미지.jpg" alt="니;유 Near You" class="logo-img" onclick="showMenu()">
-    <!-- ✅ 아래 삼각형 애니메이션 삭제됨 -->
+<body>
+
+  <!-- 첫 화면 -->
+  <div id="main-screen">
+    <button onclick="startTransition()">니:유 시작</button>
   </div>
 
-  <!-- 메뉴 화면 -->
-  <div class="main" id="menu" style="display: none;">
-    <div class="menu">
-      <button onclick="goHome()">홈</button>
-      <button onclick="alert('현재 준비중입니다')">PDF자료</button>
-      <button onclick="location.href='mailto:nextyou00@naver.com'">문의</button>
-    </div>
+  <!-- 마크 보여주는 로딩 화면 -->
+  <div id="logo-screen">
+    <img src="mark.png" alt="니:유 마크" />
   </div>
 
   <script>
-    function showMenu() {
-      document.body.classList.remove('intro');
-      document.body.style.overflow = 'auto';
-      document.querySelector('.intro-content').style.display = 'none';
-      document.getElementById('menu').style.display = 'flex';
-    }
+    function startTransition() {
+      document.getElementById("main-screen").style.display = "none";
+      const logoScreen = document.getElementById("logo-screen");
+      logoScreen.style.display = "flex";
 
-    function goHome() {
-      document.getElementById('menu').style.display = 'none';
-      document.querySelector('.intro-content').style.display = 'flex';
-      document.body.classList.add('intro');
-      document.body.style.overflow = 'hidden';
+      setTimeout(() => {
+        window.location.href = "home.html"; // 이동할 두 번째 페이지
+      }, 2000); // 2초 후 이동
     }
   </script>
+
 </body>
 </html>
