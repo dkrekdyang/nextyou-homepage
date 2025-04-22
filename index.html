@@ -46,13 +46,14 @@
     }
 
     .hero {
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       background: linear-gradient(to bottom, #fffaf5 60%, #fcefe8);
       text-align: center;
-      padding-top: 80px;
+      margin-top: 80px;
+      padding: 2rem;
     }
 
     .hero h1 {
@@ -80,6 +81,41 @@
     section p {
       line-height: 1.7;
       color: #444;
+    }
+
+    .pdf-button {
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #ddd;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: not-allowed;
+      color: #666;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 400px;
+    }
+
+    input, textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    button[type="submit"] {
+      padding: 0.75rem;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -114,11 +150,17 @@
   <section id="resources">
     <h2>PDF 자료실</h2>
     <p>현재 준비 중입니다.</p>
+    <button class="pdf-button" disabled>PDF 다운로드 (준비 중)</button>
   </section>
 
   <section id="contact">
     <h2>문의하기</h2>
-    <p>문의 사항은 <strong>nextyou00@naver.com</strong> 으로 이메일을 보내주세요.</p>
+    <form onsubmit="event.preventDefault(); alert('메일 주소: nextyou00@naver.com 으로 전송해주세요.')">
+      <input type="text" placeholder="이름" required />
+      <input type="email" placeholder="이메일" required />
+      <textarea placeholder="문의 내용을 입력해주세요." rows="5" required></textarea>
+      <button type="submit">문의 보내기</button>
+    </form>
   </section>
 </body>
 </html>
