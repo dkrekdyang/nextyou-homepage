@@ -3,84 +3,122 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>니:유</title>
+  <title>니:유 - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    body, html {
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      overflow: hidden;
-      background-color: #ffffff;
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'Noto Sans KR', sans-serif;
     }
 
-    #main-screen, #logo-screen {
-      width: 100vw;
-      height: 100vh;
-      position: absolute;
+    body {
+      background-color: #fffaf5;
+      color: #222;
+    }
+
+    header {
+      position: fixed;
       top: 0;
       left: 0;
+      width: 100%;
+      padding: 1.2rem 2rem;
+      background-color: #ffffffee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      z-index: 100;
+    }
+
+    header .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #444;
+      font-weight: 500;
+    }
+
+    .hero {
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      background: linear-gradient(to bottom, #fffaf5 60%, #fcefe8);
+      text-align: center;
+      padding-top: 80px;
     }
 
-    #logo-screen {
-      display: none;
-      background-color: #fff7f0;
-      z-index: 999;
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #111;
     }
 
-    #logo-screen img {
-      width: 180px;
-      height: auto;
-      animation: fadeInOut 2s ease-in-out;
+    .hero p {
+      font-size: 1.2rem;
+      color: #555;
     }
 
-    @keyframes fadeInOut {
-      0% { opacity: 0; transform: scale(0.9); }
-      30% { opacity: 1; transform: scale(1); }
-      70% { opacity: 1; }
-      100% { opacity: 0; transform: scale(1.05); }
+    section {
+      padding: 5rem 2rem;
+      max-width: 1000px;
+      margin: auto;
     }
 
-    button {
-      font-size: 1.5rem;
-      padding: 1rem 2rem;
-      background-color: #000;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
 
-    button:hover {
-      background-color: #333;
+    section p {
+      line-height: 1.7;
+      color: #444;
     }
   </style>
 </head>
 <body>
+  <header>
+    <div class="logo">니:유</div>
+    <nav>
+      <a href="#about">소개</a>
+      <a href="#products">제품</a>
+      <a href="#resources">PDF자료</a>
+      <a href="#contact">문의</a>
+    </nav>
+  </header>
 
-  <!-- 첫 화면 -->
-  <div id="main-screen">
-    <button onclick="startTransition()">니:유 시작</button>
+  <div class="hero">
+    <div>
+      <h1>당신 곁에, 니:유</h1>
+      <p>감성을 담은 일상, 니:유에서 시작됩니다.</p>
+    </div>
   </div>
 
-  <!-- 마크 보여주는 로딩 화면 -->
-  <div id="logo-screen">
-    <img src="mark.png" alt="니:유 마크" />
-  </div>
+  <section id="about">
+    <h2>브랜드 소개</h2>
+    <p>니:유는 감성과 실용을 조화롭게 담은 브랜드입니다. 우리는 일상 속에서 작지만 깊은 울림을 주는 제품과 경험을 통해 당신의 곁에 머무르고 싶습니다.</p>
+  </section>
 
-  <script>
-    function startTransition() {
-      document.getElementById("main-screen").style.display = "none";
-      const logoScreen = document.getElementById("logo-screen");
-      logoScreen.style.display = "flex";
+  <section id="products">
+    <h2>제품 소개</h2>
+    <p>감성 가득한 제품 라인업은 곧 추가됩니다. 기대해주세요!</p>
+  </section>
 
-      setTimeout(() => {
-        window.location.href = "home.html"; // 이동할 두 번째 페이지
-      }, 2000); // 2초 후 이동
-    }
-  </script>
+  <section id="resources">
+    <h2>PDF 자료실</h2>
+    <p>현재 준비 중입니다.</p>
+  </section>
 
+  <section id="contact">
+    <h2>문의하기</h2>
+    <p>문의 사항은 <strong>nextyou00@naver.com</strong> 으로 이메일을 보내주세요.</p>
+  </section>
 </body>
 </html>
