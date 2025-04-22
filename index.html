@@ -120,7 +120,7 @@
   </style>
 </head>
 <body>
-  <div id="intro" style="background: url('니유 이미지.jpg') center center / contain no-repeat; background-color: #fff; width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; z-index: 9999; display: flex; justify-content: center; align-items: center; cursor: pointer; overflow: hidden;" onclick="fadeOutIntro()">
+  <div id=\"intro\" style=\"background: url('니유 이미지.jpg') center center / cover no-repeat; background-color: #fff; width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; z-index: 9999; display: flex; justify-content: center; align-items: center; cursor: pointer; overflow: hidden;\" onclick=\"fadeOutIntro()\">
   </div>
 
   <div id="main" style="display: none;">
@@ -134,7 +134,7 @@
     </nav>
   </header>
 
-  <div class=\"hero\" style=\"flex-direction: column; min-height: 100vh; display: flex; justify-content: center; align-items: center; background: #fffaf5;\">
+  <div class=\"hero\" style=\"flex-direction: column; height: 100vh; display: flex; justify-content: center; align-items: center; background: #fffaf5; overflow: hidden;\">
   <div id=\"heroContent\" style=\"display: none;\">
       <input type="email" placeholder="이메일" required />
       <textarea placeholder="문의 내용을 입력해주세요." rows="5" required></textarea>
@@ -142,5 +142,20 @@
     </form>
   </section>
   </div>
+<script>
+  function fadeOutIntro() {
+    const intro = document.getElementById('intro');
+    const main = document.getElementById('main');
+    const heroContent = document.getElementById('heroContent');
+
+    intro.style.transition = 'opacity 0.5s ease';
+    intro.style.opacity = '0';
+    setTimeout(() => {
+      intro.remove();
+      main.style.display = 'block';
+      if (heroContent) heroContent.style.display = 'block';
+    }, 500);
+  }
+</script>
 </body>
 </html>
