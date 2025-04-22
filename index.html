@@ -135,18 +135,37 @@
   </header>
 
   <div class="hero" style="background: none; flex-direction: column;">
-  <script>
-    setTimeout(() => {
-      document.querySelector('.hero').innerHTML = `
-        <div>
-          <img src='mark.png' alt='니:유 이미지' style='max-height: 300px; max-width: 90%; margin-bottom: 2rem;'>
-          <h1>당신 곁에, 니:유</h1>
-          <p>감성을 담은 일상, 니:유에서 시작됩니다.</p>
-        </div>
-      `;
-    }, 2000);
-  </script>
+  <div id="heroContent" style="display: none;">
+    <img src="mark.png" alt="니:유 이미지" style="max-height: 300px; max-width: 90%; margin-bottom: 2rem;">
+    <h1>당신 곁에, 니:유</h1>
+    <p>감성을 담은 일상, 니:유에서 시작됩니다.</p>
+  </div>
 </div>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const intro = document.getElementById('intro');
+    const main = document.getElementById('main');
+    const heroContent = document.getElementById('heroContent');
+
+    function showMain() {
+      if (intro && main && heroContent) {
+        intro.style.opacity = '0';
+        setTimeout(() => {
+          intro.remove();
+          main.style.display = 'block';
+          heroContent.style.display = 'block';
+        }, 300);
+      }
+    }
+
+    intro.addEventListener('click', showMain);
+  });
+</script>
+<style>
+  #intro {
+    transition: opacity 0.3s ease;
+  }
+</style>
 
   <section id="about">
     <h2>브랜드 소개</h2>
