@@ -3,184 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>니;유 - Home</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
+  <title>니;유 - nextyou.net</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Noto Sans KR', sans-serif;
-    }
-
-    body {
-      background-color: #fffaf5;
-      color: #222;
-      overflow: hidden;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 1.2rem 2rem;
-      background-color: #ffffffee;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-      z-index: 100;
-    }
-
-    header .logo img {
-      height: 40px;
-    }
-
-    nav a {
-      margin-left: 1.5rem;
-      text-decoration: none;
-      color: #444;
-      font-weight: 500;
-    }
-
-    .hero {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #fffaf5;
-      text-align: center;
-      padding-top: 80px;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      color: #111;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: #555;
-    }
-
-    section {
-      padding: 5rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .pdf-button {
-      margin-top: 1rem;
-      padding: 0.75rem 1.5rem;
-      background-color: #ddd;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: not-allowed;
-      color: #666;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 400px;
-    }
-
-    input, textarea {
-      padding: 0.75rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1rem;
-    }
-
-    button[type="submit"] {
-      padding: 0.75rem;
-      background-color: #333;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-      
-    @media (max-width: 768px) {
-      #intro {
-        background-size: contain !important;
-        background-position: center top !important;
-        padding: 1rem;
-      }
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html { height: 100%; font-family: 'Noto Sans KR', sans-serif; background: #fff; color: #000; }
+    .screen { position: absolute; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; transition: opacity 0.8s ease; }
+    #screen1 { background: #fff; flex-direction: column; gap: 20px; }
+    #screen2 { background: #f5f5f5; flex-direction: column; opacity: 0; pointer-events: none; }
+    .logo { font-size: 3rem; font-weight: bold; }
+    .tagline { font-size: 1.2rem; margin-top: 10px; color: #333; }
+    button { padding: 10px 20px; font-size: 1rem; margin: 10px; cursor: pointer; }
   </style>
 </head>
 <body>
-  <div id=\"intro\" style=\"background: url('니유 이미지.jpg') center center / contain no-repeat; padding: 2rem; background-color: #fff; width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; z-index: 9999; display: flex; justify-content: center; align-items: center; cursor: pointer;\" onclick="fadeOutIntro()">
-    <div style="width: 100%; height: 100%;"></div>
+  <div id="screen1" class="screen">
+    <div class="logo">니;<span style="color:#e95c94;">유</span></div>
+    <div class="tagline">감성을 담은 일상, 니;유에서 시작됩니다</div>
+    <button onclick="goToScreen2()">시작하기</button>
   </div>
 
-  <div id="main" style="display: none; visibility: hidden;">
-    <header>
-      <div class="logo"><img src="mark.png" alt="니;유 마크"></div>
-      <nav>
-        <a href="#about">소개</a>
-        <a href="#products">제품</a>
-        <a href="#resources">PDF자료</a>
-        <a href="#contact">문의</a>
-      </nav>
-    </header>
-
-    <div class="hero">
-      <div id="heroContent" style="display: none;">
-        <h1>당신 곁에, 니;유</h1>
-        <p>니;유는 회계와 세무 업무에 필요한 양식과 자료를 제공하여, 직원 여러분의 실무를 보다 효율적으로 돕는 파트너입니다. 언제 어디서나 물어보면 함께 만들어드립니다.</p>
-      </div>
-    </div>
-
-    <section id="about">
-  <h2>니;유란?</h2>
-  <p>니;유는 회계 및 세무 관련 실무자들에게 필요한 자료와 양식을 제공하여, 복잡한 업무를 더 쉽고 정확하게 처리할 수 있도록 돕는 업무 지원 플랫폼입니다.</p>
-</section>
-
-    <section id="products">
-  <h2>업무 양식 지원</h2>
-  <p>회계, 세무, 인사 등 다양한 실무 분야에서 자주 사용하는 양식을 빠르게 찾고 사용할 수 있도록 정리해둔 자료실입니다. 상황에 맞게 다운로드해 업무에 활용해보세요.</p>
-</section>
-
-    <section id="resources">
-  <h2>양식 자료실</h2>
-  <p>다양한 상황에 맞는 엑셀, 워드, PDF 양식들을 카테고리별로 제공할 예정입니다.</p>
-  <button class="pdf-button" disabled>자료 다운로드 (준비 중)</button>
-</section>
-
-    <section id="contact">
-      <h2>문의하기</h2>
-      <form onsubmit="event.preventDefault(); alert('메일 주소: nextyou00@naver.com 으로 전송해주세요.')">
-        <input type="text" placeholder="이름" required />
-        <input type="email" placeholder="이메일" required />
-        <textarea placeholder="문의 내용을 입력해주세요." rows="5" required></textarea>
-        <button type="submit">문의 보내기</button>
-      </form>
-    </section>
+  <div id="screen2" class="screen">
+    <button onclick="goHome()">홈</button>
+    <button onclick="location.href='mailto:nextyou00@naver.com'">문의</button>
+    <button onclick="alert('PDF 자료는 현재 준비 중입니다.')">PDF 자료</button>
   </div>
 
   <script>
-    function fadeOutIntro() {
-      const intro = document.getElementById('intro');
-      const main = document.getElementById('main');
-      const heroContent = document.getElementById('heroContent');
-
-      intro.style.transition = 'opacity 0.5s ease';
-      intro.style.opacity = '0';
-      document.body.style.overflow = 'auto';
-
-      setTimeout(() => {
-        intro.remove();
-        main.style.display = 'block';
-        main.style.visibility = 'visible';
-        if (heroContent) heroContent.style.display = 'block';
-      }, 500);
+    function goToScreen2() {
+      document.getElementById('screen1').style.opacity = 0;
+      document.getElementById('screen1').style.pointerEvents = 'none';
+      document.getElementById('screen2').style.opacity = 1;
+      document.getElementById('screen2').style.pointerEvents = 'auto';
+    }
+    function goHome() {
+      document.getElementById('screen1').style.opacity = 1;
+      document.getElementById('screen1').style.pointerEvents = 'auto';
+      document.getElementById('screen2').style.opacity = 0;
+      document.getElementById('screen2').style.pointerEvents = 'none';
     }
   </script>
 </body>
