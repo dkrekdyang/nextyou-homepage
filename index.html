@@ -3,43 +3,118 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>니;유 - nextyou.net</title>
+  <title>니;유 near you</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body, html { height: 100%; font-family: 'Noto Sans KR', sans-serif; background: #fff; color: #000; }
-    .screen { position: absolute; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; transition: opacity 0.8s ease; }
-    #screen1 { background: #fff; flex-direction: column; gap: 20px; }
-    #screen2 { background: #f5f5f5; flex-direction: column; opacity: 0; pointer-events: none; }
-    .logo { font-size: 3rem; font-weight: bold; }
-    .tagline { font-size: 1.2rem; margin-top: 10px; color: #333; }
-    button { padding: 10px 20px; font-size: 1rem; margin: 10px; cursor: pointer; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: 'Noto Serif KR', serif;
+      background-color: #ffffff; /* ✅ 완전 흰 배경 */
+      color: #000;
+      overflow: hidden;
+    }
+
+    body.intro {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-color: #ffffff; /* ✅ intro 상태에서도 배경을 흰색으로 유지 */
+    }
+
+    .intro-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100%;
+      padding: 2rem;
+    }
+
+    .logo-img {
+      width: 100%;
+      max-width: 900px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-img:hover {
+      transform: scale(1.02);
+    }
+
+    /* ✅ 삼각형 애니메이션 제거됨 - 관련 CSS 삭제 */
+
+    /* 메뉴 화면 */
+    .main {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .menu button {
+      width: 100%;
+      padding: 1rem 2rem;
+      font-size: clamp(1rem, 2.5vw, 1.5rem); /* ✅ 반응형 글씨 크기 */
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .menu button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
   </style>
 </head>
-<body>
-  <div id="screen1" class="screen">
-    <div class="logo">니;<span style="color:#e95c94;">유</span></div>
-    <div class="tagline">감성을 담은 일상, 니;유에서 시작됩니다</div>
-    <button onclick="goToScreen2()">시작하기</button>
+<body class="intro">
+  <!-- 인트로 화면 -->
+  <div class="intro-content">
+    <img src="니유 이미지.jpg" alt="니;유 Near You" class="logo-img" onclick="showMenu()">
+    <!-- ✅ 아래 삼각형 애니메이션 삭제됨 -->
   </div>
 
-  <div id="screen2" class="screen">
-    <button onclick="goHome()">홈</button>
-    <button onclick="location.href='mailto:nextyou00@naver.com'">문의</button>
-    <button onclick="alert('PDF 자료는 현재 준비 중입니다.')">PDF 자료</button>
+  <!-- 메뉴 화면 -->
+  <div class="main" id="menu" style="display: none;">
+    <div class="menu">
+      <button onclick="goHome()">홈</button>
+      <button onclick="alert('현재 준비중입니다')">PDF자료</button>
+      <button onclick="location.href='mailto:nextyou00@naver.com'">문의</button>
+    </div>
   </div>
 
   <script>
-    function goToScreen2() {
-      document.getElementById('screen1').style.opacity = 0;
-      document.getElementById('screen1').style.pointerEvents = 'none';
-      document.getElementById('screen2').style.opacity = 1;
-      document.getElementById('screen2').style.pointerEvents = 'auto';
+    function showMenu() {
+      document.body.classList.remove('intro');
+      document.body.style.overflow = 'auto';
+      document.querySelector('.intro-content').style.display = 'none';
+      document.getElementById('menu').style.display = 'flex';
     }
+
     function goHome() {
-      document.getElementById('screen1').style.opacity = 1;
-      document.getElementById('screen1').style.pointerEvents = 'auto';
-      document.getElementById('screen2').style.opacity = 0;
-      document.getElementById('screen2').style.pointerEvents = 'none';
+      document.getElementById('menu').style.display = 'none';
+      document.querySelector('.intro-content').style.display = 'flex';
+      document.body.classList.add('intro');
+      document.body.style.overflow = 'hidden';
     }
   </script>
 </body>
