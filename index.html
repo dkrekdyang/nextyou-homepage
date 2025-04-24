@@ -107,7 +107,7 @@
     }
   </style>
 </head>
-<body style="overflow: hidden; height: 100vh;">
+<body style="margin: 0; padding: 0; overflow: hidden; width: 100vw; height: 100vh;">
   <div id="intro" style="background: url('image111.png') center center / contain no-repeat; background-color: #fff; width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; z-index: 9999; display: flex; justify-content: center; align-items: center; cursor: pointer;" onclick="fadeOutIntro()">
     <div style="width: 100%; height: 100%;"></div>
   </div>
@@ -123,10 +123,10 @@
       </nav>
     </header>
 
-    <div class="hero" style="background: url('image222.png') center center / contain no-repeat;">
-      <div id="heroContent" style="display: none;">
-        <div style="position: absolute; top: 20px; left: 20px;"><img src="mark.png" alt="니;유 마크" style="height: 40px;"></div>
-        <img src="mark.png" alt="니;유 마크" style="max-height: 120px; margin-bottom: 1rem;">
+    <div class="hero" style="background: url('image222.png') center center / contain no-repeat; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative;">
+      <div id="heroContent" style="display: none; height: 100vh; width: 100vw; overflow: hidden; position: relative;">
+        <div style="position: absolute; top: 20px; left: 20px;"><img src="mark.png" alt="니;유 마크" style="height: 28px;"></div>
+        <img src="mark.png" alt="니;유 마크" style="max-height: 80px; margin-bottom: 1rem;">
         <h1>당신 곁에, 니;유</h1>
         <p>회계 · 세무 · 실무 양식까지, 당신의 옆에서 언제든지 만들어주는 실무 도우미 플랫폼입니다.</p>
       </div>
@@ -149,7 +149,7 @@
     // 마지막 페이지가 끝나고 2초 후 첫 페이지로 자동 전환
     setTimeout(() => {
       window.location.reload();
-    }, 2000);
+    }, 4000);
   }
 
   function fadeOutIntro() {
@@ -164,7 +164,7 @@
       intro.style.display = 'none';
       main.style.display = 'block';
       main.style.visibility = 'visible';
-      setTimeout(showHeroContent, 2000);
+      setTimeout(showHeroContent, 3000);
     }, 1000);
   }
 
