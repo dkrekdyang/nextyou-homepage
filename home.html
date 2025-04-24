@@ -124,8 +124,7 @@
     </header>
 
     <div class="hero" style="background: url('image222.png') center center / contain no-repeat; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative;">
-      <div id="heroContent" style="display: none; height: 100vh; width: 100vw; overflow: hidden; position: relative;">
-        <div style="position: absolute; top: 20px; left: 20px;"><img src="mark.png" alt="니;유 마크" style="height: 28px;"></div>
+      
         <img src="mark.png" alt="니;유 마크" style="max-height: 80px; margin-bottom: 1rem;">
         <h1>당신 곁에, 니;유</h1>
         <p>회계 · 세무 · 실무 양식까지, 당신의 옆에서 언제든지 만들어주는 실무 도우미 플랫폼입니다.</p>
@@ -142,16 +141,6 @@
   </div>
 
   <script>
-  function showHeroContent() {
-    const heroContent = document.getElementById('heroContent');
-    if (heroContent) heroContent.style.display = 'block';
-
-    // 마지막 페이지가 끝나고 2초 후 첫 페이지로 자동 전환
-    setTimeout(() => {
-      window.location.reload();
-    }, 4000);
-  }
-
   function fadeOutIntro() {
     const intro = document.getElementById('intro');
     const main = document.getElementById('main');
@@ -164,7 +153,6 @@
       intro.style.display = 'none';
       main.style.display = 'block';
       main.style.visibility = 'visible';
-      setTimeout(showHeroContent, 3000);
     }, 1000);
   }
 
