@@ -107,7 +107,7 @@
     }
   </style>
 </head>
-<body>
+<body style="overflow: hidden; height: 100vh;">
   <div id="intro" style="background: url('image111.png') center center / contain no-repeat; background-color: #fff; width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; z-index: 9999; display: flex; justify-content: center; align-items: center; cursor: pointer;" onclick="fadeOutIntro()">
     <div style="width: 100%; height: 100%;"></div>
   </div>
@@ -132,31 +132,13 @@
       </div>
     </div>
 
-    <section id="about">
-      <h2>브랜드 소개</h2>
-      <p>니;유는 감성과 실용을 조화롭게 담은 브랜드입니다. 우리는 일상 속에서 작지만 깊은 울림을 주는 제품과 경험을 통해 당신의 곁에 머무르고 싶습니다.</p>
-    </section>
+    
 
-    <section id="products">
-      <h2>제품 소개</h2>
-      <p>감성 가득한 제품 라인업은 곧 추가됩니다. 기대해주세요!</p>
-    </section>
+    
 
-    <section id="resources">
-      <h2>PDF 자료실</h2>
-      <p>현재 준비 중입니다.</p>
-      <button class="pdf-button" disabled>PDF 다운로드 (준비 중)</button>
-    </section>
+    
 
-    <section id="contact">
-      <h2>문의하기</h2>
-      <form onsubmit="event.preventDefault(); alert('메일 주소: nextyou00@naver.com 으로 전송해주세요.')">
-        <input type="text" placeholder="이름" required />
-        <input type="email" placeholder="이메일" required />
-        <textarea placeholder="문의 내용을 입력해주세요." rows="5" required></textarea>
-        <button type="submit">문의 보내기</button>
-      </form>
-    </section>
+    
   </div>
 
   <script>
