@@ -122,6 +122,11 @@
     <p style="opacity: 0; animation: fadeIn 1.5s ease 1s forwards;">회계 · 세무 · 실무 양식까지, 당신의 옆에서 언제든지 만들어주는 실무 도우미 플랫폼입니다.</p>
   </div>
   </div>
+  <div id="third" style="display: none; position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #fffaf5; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+    <div style="position: absolute; top: 20px; left: 20px;"><img src="mark.png" alt="니;유 마크" style="height: 28px;"></div>
+    <h1 style="font-size: 2.5rem; margin-bottom: 1rem; opacity: 0; animation: fadeIn 1.5s ease 0.5s forwards;">세 번째 페이지입니다</h1>
+    <p style="font-size: 1.1rem; opacity: 0; animation: fadeIn 1.5s ease 1s forwards;">여기에 필요한 추가 문구를 넣어주세요.</p>
+  </div>
 <script>
   function fadeOutIntro() {
     const intro = document.getElementById('intro');
@@ -135,6 +140,10 @@
       intro.style.display = 'none';
       main.style.display = 'block';
       main.style.visibility = 'visible';
+      setTimeout(() => {
+        main.style.display = 'none';
+        document.getElementById('third').style.display = 'flex';
+      }, 4000);
     }, 1000);
   }
 
