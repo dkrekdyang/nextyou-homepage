@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nextyou Intro</title>
   <style>
     * {
@@ -10,112 +10,138 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     html, body {
       width: 100%;
       height: 100%;
       background-color: #fff;
       font-family: 'Noto Sans KR', sans-serif;
     }
-
     .container {
       position: relative;
       width: 100%;
       height: 100vh;
       overflow: hidden;
     }
-
     .fade-image {
       position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
-      object-fit: contain; /* 💡 배경에 꽉 채우면서 이미지 비율 유지 */
+      object-fit: contain;
       transition: opacity 1.5s ease;
       opacity: 0;
       z-index: 0;
     }
-
     .fade-image.active {
       opacity: 1;
       z-index: 1;
     }
 
-    .logo {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      width: 80px;
-      height: auto;
-      z-index: 10;
-    }
-
-    .second-screen {
+    .screen {
       display: none;
       width: 100%;
       height: 100vh;
-      background-color: #f9f9f9;
+      background-color: #f8f8f8;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       padding: 20px;
+      position: relative;
     }
 
-    .second-screen h1 {
+    .screen h1 {
       font-size: 4vw;
       margin-bottom: 20px;
     }
 
-    .second-screen p {
+    .screen p {
       font-size: 2.5vw;
       color: #444;
     }
 
     @media (max-width: 768px) {
-      .second-screen h1 {
+      .screen h1 {
         font-size: 6vw;
       }
-      .second-screen p {
+      .screen p {
         font-size: 4vw;
       }
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 100px;
+      height: auto;
+      display: none; /* 기본은 안 보이게 */
+    }
+
+    .third-screen .logo {
+      display: block; /* 세 번째 화면에서만 보이게 */
     }
   </style>
 </head>
 <body>
 
-<!-- 첫 화면 -->
+<!-- 첫 번째 화면 -->
 <div class="container" id="image-container">
-  <img src="mark.png" alt="로고" class="logo" />
   <img src="image1.png" class="fade-image active" id="img1" alt="첫 이미지" />
   <img src="image2.png" class="fade-image" id="img2" alt="두 번째 이미지" />
 </div>
 
 <!-- 두 번째 화면 -->
-<div class="second-screen" id="secondScreen">
+<div class="screen" id="secondScreen">
   <h1>당신 옆에서, 언제나.</h1>
   <p>업무 향상을 돕는 나만의 콘텐츠 플랫폼</p>
+</div>
+
+<!-- 세 번째 화면 -->
+<div class="screen third-screen" id="thirdScreen">
+  <img src="mark.png" alt="로고" class="logo" />
+  <h1>함께 성장하는 파트너</h1>
+  <p>지속 가능한 성공을 위한 동반자</p>
 </div>
 
 <script>
   const img1 = document.getElementById('img1');
   const img2 = document.getElementById('img2');
-  const secondScreen = document.getElementById('secondScreen');
   const imageContainer = document.getElementById('image-container');
+  const secondScreen = document.getElementById('secondScreen');
+  const thirdScreen = document.getElementById('thirdScreen');
 
-  // 첫 화면 이미지 전환
-  setTimeout(() => {
-    img1.classList.remove('active');
-    img2.classList.add('active');
-  }, 2500);
+  function showFirstScreen() {
+    imageContainer.style.display = 'block';
+    secondScreen.style.display = 'none';
+    thirdScreen.style.display = 'none';
+    img1.classList.add('active');
+    img2.classList.remove('active');
 
-  // 두 번째 화면 전환
-  setTimeout(() => {
+    setTimeout(() => {
+      img1.classList.remove('active');
+      img2.classList.add('active');
+    }, 2500);
+
+    setTimeout(showSecondScreen, 5500);
+  }
+
+  function showSecondScreen() {
     imageContainer.style.display = 'none';
     secondScreen.style.display = 'flex';
-  }, 5500);
+    thirdScreen.style.display = 'none';
+    setTimeout(showThirdScreen, 3000);
+  }
+
+  function showThirdScreen() {
+    imageContainer.style.display = 'none';
+    secondScreen.style.display = 'none';
+    thirdScreen.style.display = 'flex';
+    setTimeout(showFirstScreen, 3000);
+  }
+
+  // 처음 실행
+  showFirstScreen();
 </script>
 
 </body>
