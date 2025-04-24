@@ -2,120 +2,101 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>니;유 near you</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nextyou Intro</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     html, body {
       width: 100%;
       height: 100%;
-      font-family: 'Noto Serif KR', serif;
-      background-color: #ffffff; /* ✅ 완전 흰 배경 */
-      color: #000;
+      background-color: #fff;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
       overflow: hidden;
     }
-
-    body.intro {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      background-color: #ffffff; /* ✅ intro 상태에서도 배경을 흰색으로 유지 */
-    }
-
-    .intro-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+    .fade-image {
+      position: absolute;
+      width: 100%;
       height: 100%;
-      padding: 2rem;
+      object-fit: contain;
+      transition: opacity 1.5s ease;
+      opacity: 0;
+      z-index: 0;
+    }
+    .fade-image.active {
+      opacity: 1;
+      z-index: 1;
     }
 
-    .logo-img {
-      width: 100%;
-      max-width: 900px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 100px;
+      height: auto;
+      z-index: 10;
     }
 
-    .logo-img:hover {
-      transform: scale(1.02);
-    }
-
-    /* ✅ 삼각형 애니메이션 제거됨 - 관련 CSS 삭제 */
-
-    /* 메뉴 화면 */
-    .main {
+    .second-screen {
       display: none;
-      width: 100vw;
+      width: 100%;
       height: 100vh;
-      background: #ffffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-    }
-
-    .menu {
+      background-color: #f8f8f8;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 2rem;
-      width: 100%;
-      max-width: 500px;
+      font-size: 2rem;
+      color: #333;
+      padding: 20px;
+      text-align: center;
     }
-
-    .menu button {
-      width: 100%;
-      padding: 1rem 2rem;
-      font-size: clamp(1rem, 2.5vw, 1.5rem); /* ✅ 반응형 글씨 크기 */
-      background: #000;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .menu button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    .second-screen h1 {
+      margin-bottom: 20px;
     }
   </style>
 </head>
-<body class="intro">
-  <!-- 인트로 화면 -->
-  <div class="intro-content">
-    <img src="니유 이미지.jpg" alt="니;유 Near You" class="logo-img" onclick="showMenu()">
-    <!-- ✅ 아래 삼각형 애니메이션 삭제됨 -->
-  </div>
+<body>
 
-  <!-- 메뉴 화면 -->
-  <div class="main" id="menu" style="display: none;">
-    <div class="menu">
-      <button onclick="goHome()">홈</button>
-      <button onclick="alert('현재 준비중입니다')">PDF자료</button>
-      <button onclick="location.href='mailto:nextyou00@naver.com'">문의</button>
-    </div>
-  </div>
+<!-- 첫 화면 -->
+<div class="container" id="image-container">
+  <img src="mark.png" alt="로고" class="logo" />
+  <img src="image1.jpg" class="fade-image active" id="img1" alt="연한 글자" />
+  <img src="image2.jpg" class="fade-image" id="img2" alt="진한 글자" />
+</div>
 
-  <script>
-    function showMenu() {
-      document.body.classList.remove('intro');
-      document.body.style.overflow = 'auto';
-      document.querySelector('.intro-content').style.display = 'none';
-      document.getElementById('menu').style.display = 'flex';
-    }
+<!-- 두 번째 화면 -->
+<div class="second-screen" id="secondScreen">
+  <h1>당신 옆에서, 언제나.</h1>
+  <p>업무 향상을 돕는 나만의 콘텐츠 플랫폼</p>
+</div>
 
-    function goHome() {
-      document.getElementById('menu').style.display = 'none';
-      document.querySelector('.intro-content').style.display = 'flex';
-      document.body.classList.add('intro');
-      document.body.style.overflow = 'hidden';
-    }
-  </script>
+<script>
+  const img1 = document.getElementById('img1');
+  const img2 = document.getElementById('img2');
+  const secondScreen = document.getElementById('secondScreen');
+  const imageContainer = document.getElementById('image-container');
+
+  // 첫 화면 이미지 전환
+  setTimeout(() => {
+    img1.classList.remove('active');
+    img2.classList.add('active');
+  }, 2500);
+
+  // 두 번째 화면 전환
+  setTimeout(() => {
+    imageContainer.style.display = 'none';
+    secondScreen.style.display = 'flex';
+  }, 5500);
+</script>
+
 </body>
 </html>
