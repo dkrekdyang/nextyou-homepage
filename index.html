@@ -1,176 +1,80 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>니;유 - Home</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>니;유 - nextyou.net</title>
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Noto Sans KR', sans-serif;
+      box-sizing: border-box;
     }
-
     body {
-      background-color: #fffaf5;
-      color: #222;
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #fff;
       overflow: hidden;
     }
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 1.2rem 2rem;
-      background-color: #ffffffee;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-      z-index: 100;
-    }
-
-    header .logo img {
-      height: 40px;
-    }
-
-    nav a {
-      margin-left: 1.5rem;
-      text-decoration: none;
-      color: #444;
-      font-weight: 500;
-    }
-
-    .hero {
+    section {
+      width: 100vw;
       height: 100vh;
-      display: flex;
+      display: none;
       justify-content: center;
       align-items: center;
-      background: #fffaf5;
-      text-align: center;
-      padding-top: 80px;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
-
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      color: #111;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: #555;
-    }
-
-    section {
-      padding: 5rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .pdf-button {
-      margin-top: 1rem;
-      padding: 0.75rem 1.5rem;
-      background-color: #ddd;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: not-allowed;
-      color: #666;
-    }
-
-    form {
+    section.active {
       display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 400px;
     }
-
-    input, textarea {
-      padding: 0.75rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1rem;
+    .section1 h1,
+    .section2 h1,
+    .section3 h1 {
+      font-size: 4rem;
     }
-
-    button[type="submit"] {
-      padding: 0.75rem;
-      background-color: #333;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
+    .logo-mark {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
+      width: 80px;
+    }
+    img.fullscreen-img {
+      max-width: 100%;
+      max-height: 100vh;
+      object-fit: contain;
     }
   </style>
 </head>
-<body style="margin: 0; padding: 0; overflow: hidden; width: 100vw; height: 100vh;">
-  <div id="intro" style="background: url('image111.png') center center / contain no-repeat; background-color: #fff; width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; z-index: 9999; display: flex; justify-content: center; align-items: center; cursor: pointer;" onclick="fadeOutIntro()">
-    <div style="width: 100%; height: 100%;"></div>
-  </div>
+<body>
 
-  <div id="main" style="display: none; visibility: hidden;">
-    <header>
-      <div class="logo"><img src="mark.png" alt="니;유 마크"></div>
-      <nav>
-        <a href="#about">소개</a>
-        <a href="#products">제품</a>
-        <a href="#resources">PDF자료</a>
-        <a href="#contact">문의</a>
-      </nav>
-    </header>
+  <!-- SECTION 1 -->
+  <section id="section1" class="section1 active">
+    <img class="fullscreen-img" src="images/image111.png" alt="니;유 이미지1">
+  </section>
 
-    <div class="hero" style="background: url('image222.png') center center / contain no-repeat; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative;">
-      <div id="heroContent" style="display: none; height: 100vh; width: 100vw; overflow: hidden; position: relative;">
-        <div style="position: absolute; top: 20px; left: 20px;"><img src="mark.png" alt="니;유 마크" style="height: 28px;"></div>
-        <img src="mark.png" alt="니;유 마크" style="max-height: 80px; margin-bottom: 1rem;">
-        <h1>당신 곁에, 니;유</h1>
-        <p>회계 · 세무 · 실무 양식까지, 당신의 옆에서 언제든지 만들어주는 실무 도우미 플랫폼입니다.</p>
-      </div>
-    </div>
+  <!-- SECTION 2: 이미지 전용 화면 -->
+  <section id="section2" class="section2">
+    <img class="fullscreen-img" src="images/image222.png" alt="니;유 이미지2">
+  </section>
 
-    
-
-    
-
-    
-
-    
-  </div>
+  <!-- SECTION 3: 마크 위치 조정 -->
+  <section id="section3" class="section3">
+    <img class="logo-mark" src="images/mark.png" alt="니;유 마크">
+    <h1>니;<span style="letter-spacing: 0.1em">유</span></h1>
+  </section>
 
   <script>
-  function showHeroContent() {
-    const heroContent = document.getElementById('heroContent');
-    if (heroContent) heroContent.style.display = 'block';
+    const sections = document.querySelectorAll("section");
+    let current = 0;
 
-    // 마지막 페이지가 끝나고 2초 후 첫 페이지로 자동 전환
-    setTimeout(() => {
-      window.location.reload();
+    setInterval(() => {
+      sections[current].classList.remove("active");
+      current = (current + 1) % sections.length;
+      sections[current].classList.add("active");
     }, 4000);
-  }
+  </script>
 
-  function fadeOutIntro() {
-    const intro = document.getElementById('intro');
-    const main = document.getElementById('main');
-
-    intro.style.transition = 'opacity 1s ease';
-    intro.style.opacity = '0';
-    document.body.style.overflow = 'hidden';
-
-    setTimeout(() => {
-      intro.style.display = 'none';
-      main.style.display = 'block';
-      main.style.visibility = 'visible';
-      setTimeout(showHeroContent, 3000);
-    }, 1000);
-  }
-
-  window.addEventListener('DOMContentLoaded', () => {
-    setTimeout(fadeOutIntro, 2000);
-  });
-</script>
 </body>
 </html>
